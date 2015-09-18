@@ -76,5 +76,8 @@ for (i in 1:length(matchList))
   tempDF1 <- matchTable
 }
 
+# Removing duplicates from the data frame due to year end test matches being counted twice
+matchTable <- unique(matchTable)
+
 # Exporting the data frame to a XLSX file in the working directory
 write.xlsx(matchTable, "./IndiaCricRecords.xlsx", row.names = FALSE)
