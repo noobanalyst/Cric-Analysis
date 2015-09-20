@@ -19,6 +19,11 @@ winningType <- addmargins(xtabs(~ rearrange(matchTable$MatchType) + rearrange(ma
 names(dimnames(winningType)) <- c("MatchType","Team")
 winningType
 
+# Same stat as a percentage
+winningTypePerc <- prop.table(xtabs(~ rearrange(matchTable$MatchType) + rearrange(matchTable$Winner), matchTable), margin = 1)*100
+names(dimnames(winningTypePerc)) <- c("MatchType","Team")
+winningTypePerc
+
 #Creating a list of opponent wise distribution of matches won
 temp <- sort(levels(matchTable$`Team 1`))
 Opponent <- temp[temp!="India"]
